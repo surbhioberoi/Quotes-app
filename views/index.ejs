@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <style>
+        body {
+        font-size: 1.2em;
+        color: #f8f8ee;
+        background: #517fa4;
+        background: -webkit-linear-gradient(to left, #517fa4 , #243949); 
+        background: linear-gradient(to left, #517fa4 , #243949); 
+        font-family: 'Roboto', sans-serif;
+        padding: 3%;
+        text-align: center;
+        font-weight: 300;
+        }
+
+      .quote {
+        margin-top: 1em;
+        list-style: none;
+        background-color: rgba(255,255,255, 0.3);
+        padding: 1%;
+        margin: 2%;
+      }
+
+      .quote > span:first-child {
+        color: #fff !important;
+        margin-right: 10px;
+      }
+
+      .quote > span:first-child:after {
+        content:' -'
+      }
+      input {
+        height: 35px;
+        width: 200px;
+        font-size: 0.8em;
+        text-align: center;
+      }
+      button {
+        height: 40px;
+        width: 120px;
+        font-size: 0.8em;
+        background-color: transparent;
+        color: #fff;
+        border: solid 1px #fff;
+        border-radius: 0;
+        opacity: 0.8;
+        transition: 0.3s;
+       }
+      button:hover {
+        background-color: orange;
+      }
+
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+  Quotes Quotes Quotes!
+
+  <ul class="quotes">
+  <% for(var i=0; i<quotes.length; i++) {%>
+    <li class="quote">
+      <span><%= quotes[i].name %></span>
+      <span><%= quotes[i].quote %></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <form action="/quotes" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="quote" name="quote">
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
